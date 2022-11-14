@@ -133,7 +133,7 @@ const AddAddress: React.FC = () => {
               errors={errors}
               autoComplete="address-line2"
             />
-            <div className="grid grid-cols-[144px_1fr] gap-x-2">
+            <div className="grid grid-cols-[160px_1fr] gap-x-2">
               <Input
                 label="Postal code"
                 {...register("postal_code", {

@@ -18,7 +18,7 @@ const PaymentStripe: React.FC = () => {
     return {
       style: {
         base: {
-          fontFamily: "Inter, sans-serif",
+          fontFamily: "Poppins, sans-serif",
           color: "#424270",
           padding: "10px 12px",
           "::placeholder": {

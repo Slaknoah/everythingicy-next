@@ -4,6 +4,7 @@ import useCountryOptions from "@lib/hooks/use-country-options"
 import ChevronDown from "@modules/common/icons/chevron-down"
 import Search from "@modules/common/icons/search"
 import X from "@modules/common/icons/x"
+import Logo from "@modules/common/svg/logo"
 import { useCollections, useMeCustomer } from "medusa-react"
 import Link from "next/link"
 import ReactCountryFlag from "react-country-flag"
@@ -36,7 +37,7 @@ const MainMenu = () => {
           </button>
         </div>
         <div>
-          <h1 className="text-xl-semi uppercase">Acme</h1>
+          <Logo className="w-10 h-10" />
         </div>
         <div className="flex-1 basis-0 flex justify-end">
           <button onClick={close}>

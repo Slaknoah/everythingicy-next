@@ -3,6 +3,7 @@ import Hamburger from "@modules/common/components/hamburger"
 import CartDropdown from "@modules/layout/components/cart-dropdown"
 import DropdownMenu from "@modules/layout/components/dropdown-menu"
 import MobileMenu from "@modules/mobile-menu/templates"
+import Logo from "@modules/common/svg/logo"
 import DesktopSearchModal from "@modules/search/templates/desktop-search-modal"
 import clsx from "clsx"
 import Link from "next/link"
@@ -72,7 +73,9 @@ const Nav = () => {
 
           <div className="flex items-center h-full">
             <Link href="/">
-              <a className="text-xl-semi uppercase">Acme</a>
+              <a className="uppercase">
+                <Logo className="w-10 h-10" />
+              </a>
             </Link>
           </div>
 

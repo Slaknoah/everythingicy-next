@@ -24,7 +24,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          "Inter",
+          "Poppins",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
