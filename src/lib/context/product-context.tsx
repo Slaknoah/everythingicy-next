@@ -2,6 +2,7 @@ import { canBuy } from "@lib/util/can-buy"
 import { findCheapestPrice } from "@lib/util/prices"
 import isEqual from "lodash/isEqual"
 import { formatVariantPrice, useCart } from "medusa-react"
+import { useRouter } from "next/router"
 import React, {
   createContext,
   useContext,
@@ -42,6 +43,7 @@ export const ProductProvider = ({
   const [maxQuantityMet, setMaxQuantityMet] = useState<boolean>(false)
   const [inStock, setInStock] = useState<boolean>(true)
 
+  const { push } = useRouter()
   const { addItem } = useStore()
   const { cart } = useCart()
   const { variants } = product
@@ -120,10 +122,14 @@ export const ProductProvider = ({
 
   const addToCart = () => {
     if (variant) {
-      addItem({
-        variantId: variant.id,
-        quantity,
-      })
+      if (!inStock) {
+        push("/sourcery")
+      } else {
+        addItem({
+          variantId: variant.id,
+          quantity,
+        })
+      }
     }
   }
 

@@ -66,12 +66,24 @@ const Nav = () => {
             <div className="block small:hidden">
               <Hamburger setOpen={toggle} />
             </div>
-            <div className="hidden small:block h-full">
-              <DropdownMenu />
+
+            <div className="hidden small:flex items-center h-full">
+              <Link href="/">
+                <a className="uppercase">
+                  <Logo className="w-10 h-10" />
+                </a>
+              </Link>
             </div>
           </div>
 
-          <div className="flex items-center h-full">
+          <div className="hidden small:flex items-center gap-6 h-full">
+            <DropdownMenu />
+            <Link href="/sourcery" passHref>
+              <a className="flex h-full items-center">Sourcery</a>
+            </Link>
+          </div>
+
+          <div className="flex items-center h-full small:hidden">
             <Link href="/">
               <a className="uppercase">
                 <Logo className="w-10 h-10" />
