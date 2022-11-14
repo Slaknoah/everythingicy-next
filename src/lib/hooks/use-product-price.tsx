@@ -34,22 +34,22 @@ const useProductPrice = ({ id, variantId }: useProductPriceProps) => {
 
     const variants = product.variants as CalculatedVariant[]
 
-    const cheapestVariant = variants.reduce((prev, curr) => {
+    const cheapestVariant = variants?.reduce((prev, curr) => {
       return prev.calculated_price < curr.calculated_price ? prev : curr
     })
 
     return {
       calculated_price: formatAmount({
-        amount: cheapestVariant.calculated_price,
+        amount: cheapestVariant?.calculated_price ?? 0,
         region: cart.region,
         includeTaxes: false,
       }),
       original_price: formatAmount({
-        amount: cheapestVariant.original_price,
+        amount: cheapestVariant?.original_price ?? 0,
         region: cart.region,
         includeTaxes: false,
       }),
-      price_type: cheapestVariant.calculated_price_type,
+      price_type: cheapestVariant?.calculated_price_type ?? "fixed",
       percentage_diff: getPercentageDiff(
         cheapestVariant.original_price,
         cheapestVariant.calculated_price

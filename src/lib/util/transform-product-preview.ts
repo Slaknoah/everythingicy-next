@@ -24,7 +24,7 @@ const transformProductPreview = (
     thumbnail: product.thumbnail,
     price: {
       calculated_price: formatAmount({
-        amount: cheapestVariant.calculated_price,
+        amount: cheapestVariant?.calculated_price || 0,
         region: region,
         includeTaxes: false,
       }),
