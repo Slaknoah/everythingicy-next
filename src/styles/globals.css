@@ -113,3 +113,14 @@
     @apply text-[36px] leading-[48px] font-semibold;
   }
 }
+`
+/* Nprogress */
+#nprogress .bar {
+  background: blue !important;
+  height: 4px !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: blue !important;
+  border-left-color: blue !important;
+}

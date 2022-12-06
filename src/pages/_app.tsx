@@ -7,6 +7,12 @@ import { CartProvider, MedusaProvider } from "medusa-react"
 import { Hydrate } from "react-query"
 import "styles/globals.css"
 import { AppPropsWithLayout } from "types/global"
+import dynamic from "next/dynamic"
+import "nprogress/nprogress.css"
+
+const TopProgressBar = dynamic(() => import("@modules/top-progress"), {
+  ssr: false,
+}) as React.FC
 
 function App({
   Component,
@@ -27,6 +33,7 @@ function App({
             <CartProvider>
               <StoreProvider>
                 <AccountProvider>
+                  <TopProgressBar />
                   {getLayout(<Component {...pageProps} />)}
                 </AccountProvider>
               </StoreProvider>
