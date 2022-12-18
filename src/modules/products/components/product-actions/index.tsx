@@ -23,6 +23,21 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
     return variantPrice || cheapestPrice || null
   }, [price])
 
+  // Format strings containing line breaks \n to be rendered as <br /> tags
+  const formatDescription = (description: string | null) => {
+    if (!description) {
+      return null
+    }
+    
+    return description.split("\n").map((str, i) => (
+      <React.Fragment key={i}>
+        {str}
+        <br />
+      </React.Fragment>
+    ))
+  }
+
+    
   return (
     <div className="flex flex-col gap-y-2">
       {product.collection && (
@@ -34,7 +49,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
       )}
       <h3 className="text-xl-regular">{product.title}</h3>
 
-      <p className="text-base-regular">{product.description}</p>
+      <p className="text-base-regular">{formatDescription(product.description)}</p>
 
       {product.variants.length > 1 && (
         <div className="my-8 flex flex-col gap-y-6">
